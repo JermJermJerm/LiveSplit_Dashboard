@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>LiveSplit Dashboard</title>
+		
+		
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+		
+		<script>
+		
+			/*<!--rewrite this 
+			-remove the form submit event
+			-switch to broadcast
+			--try to broadcast 'instruction, 'startorsplit/r/n'
+			---node server should pass off the instruction (startorsplit) to ls server
+			
+				$('form').submit(function(){
+					socket.broadcast.emit('chat message', $('#m').val());
+					$('#m').val('');
+				});
+				
+				socket.on('chat message', function(msg){
+					$('#messages').append($('<li>').text(msg));
+				});
+				
+			-->*/
+			
+			$(function() {
+				var socket = io();
+				
+				$(".LS_command").on("click", function(){
+					var instruction = $(this).attr("id") + "\r\n";
+					socket.emit('instruction', instruction);
+				});
+				
+			});
+		</script>
+	</head>
+		<body>
+			<h1>The LiveSplit Dashboard</h1>
+			<h4>by Jerm</h4>
+			<div id="dashboard">
+				<h2 class="LS_command" id="startorsplit">Start or Split</h2>
+				
+				<h2 class="LS_command" id="reset">Reset</h2>
+			</div>
+		</body>
+		
+</html>
