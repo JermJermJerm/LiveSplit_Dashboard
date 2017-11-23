@@ -2,28 +2,12 @@
 	<head>
 		<title>LiveSplit Dashboard</title>
 		
+		<link href="styles.css" type="text/css" rel="stylesheet"/>
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 		
 		<script src="/socket.io/socket.io.js"></script>
-		<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script>
-		
-			/*<!--rewrite this 
-			-remove the form submit event
-			-switch to broadcast
-			--try to broadcast 'instruction, 'startorsplit/r/n'
-			---node server should pass off the instruction (startorsplit) to ls server
-			
-				$('form').submit(function(){
-					socket.broadcast.emit('chat message', $('#m').val());
-					$('#m').val('');
-				});
-				
-				socket.on('chat message', function(msg){
-					$('#messages').append($('<li>').text(msg));
-				});
-				
-			-->*/
 			
 			$(function() {
 				var socket = io();
@@ -32,18 +16,49 @@
 					var instruction = $(this).attr("id") + "\r\n";
 					socket.emit('instruction', instruction);
 				});
-				
+				/*
+				$("#reconnect").on("click", function(){
+					socket.emit('reconnect');
+				});
+				*/
 			});
 		</script>
-	</head>
-		<body>
-			<h1>The LiveSplit Dashboard</h1>
-			<h4>by Jerm</h4>
-			<div id="dashboard">
-				<h2 class="LS_command" id="startorsplit">Start or Split</h2>
-				
-				<h2 class="LS_command" id="reset">Reset</h2>
-			</div>
-		</body>
 		
+	</head>
+	<body>
+	
+		<h1>The LiveSplit Dashboard</h1>
+		
+		<div id="dashboard">
+			<!--
+			<h2 id="reconnect">Reconnect to Livesplit Server</h2>
+			-->
+			
+			<div id="general">
+				<h2>General commands</h2>
+			
+				<h3 class="LS_command" id="starttimer">Start</h2>
+				<h3 class="LS_command" id="reset">Reset</h3>
+				<h3 class="LS_command" id="split">Split</h3>
+				<h3 class="LS_command" id="unsplit">Undo split</h3>
+				<h3 class="LS_command" id="skipsplit">Skip split</h3>
+				<h3 class="LS_command" id="pause">Pause</h3>
+				<h3 class="LS_command" id="resume">Resume</h3>
+			</div>
+			
+			<div id="comparisons">
+				<h2>Set Comparison</h2>
+				<ul>
+					<li class="LS_command" id="setcomparison Best Segments">Best Segments</li>
+					<li class="LS_command" id="setcomparison Best Split Times">Best Split Times</li>
+					<li class="LS_command" id="setcomparison Average Segments">Average Segments</li>
+					<li class="LS_command" id="setcomparison Worst Segments">Worst Segments</li>
+					<li class="LS_command" id="setcomparison Balanced PB">Balanced PB</li>
+					<li class="LS_command" id="setcomparison Latest Run">Latest Run</li>
+					<li class="LS_command" id="setcomparison None">None</li>
+				</ul>
+			</div>
+			
+		</div>
+	</body>
 </html>

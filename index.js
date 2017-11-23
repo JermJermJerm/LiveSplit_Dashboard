@@ -43,6 +43,18 @@ io.on('connection', function(socket){
 		console.log('Instruction: ' + instruction);
 		livesplitClient.write(instruction);
 	});
+	
+	/*
+	Needs to be fixed - we want to be able to retry a connection
+	maybe set a timeout for retrying on connection error up top?
+	
+	socket.on('reconnect', function(){
+		var livesplitClient = new net.createConnection({port: 16834}, () => {
+			console.log("attempting to connect to livesplit server...");
+		});
+	});
+	*/
+	
 });
 
 http.listen(3000, function(){

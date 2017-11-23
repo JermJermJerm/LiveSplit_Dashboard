@@ -1,0 +1,33 @@
+Detect connection issues with and retry connections to LiveSplit Server without having to stop the app
+-Auto vs Manual retries
+--Probably preferring manual so we don't hang things up
+
+Establish colors
+-Base
+-Hover, lighter?
+-Click, darkest?
+
+Note, livesplit default colors:
+
+Gold: FFD8AF1F
+Ahead, Gaining time: RGB(216, 175, 31) / FF29CC54
+Ahead, Losing time: RGB(41, 204, 84) / FF70CC89
+Behind, Gaining time: RGB(112, 204, 137) / FFCC7870
+Behind, Losing time: RGB(204, 55, 41) / FFCC3729
+Personal best: RGB(22, 166, 255) / FF16A6FF
+
+Instructions
+-Download and unzip LiveSplit Dashboard
+-Install nodejs
+-command line / powershell -> npm install -g node-cli for global installation
+-navigate to LiveSplit Dashboard
+-npm install to install dependencies from package.json
+
+
+Download the Livesplit Server component from livesplit.org
+Put the contents of the unzipped folder in Livesplit / Components
+Add the Livesplit Server component to your Livesplit Layout (Right-click->Edit Layout)
+Right-click -> Control -> Start Server 
+
+-when it's finished, use node index to start the application
+-type localhost:3000 to control livesplit
