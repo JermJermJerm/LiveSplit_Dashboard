@@ -1,6 +1,6 @@
 {
   "name": "LivesplitDashboard",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Control livesplit from a web-browser",
   "dependencies": {
     "express": "^4.15.2",

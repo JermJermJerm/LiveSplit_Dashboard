@@ -2,7 +2,7 @@
 	<head>
 		<title>LiveSplit Dashboard</title>
 		
-		<link href="styles.css" type="text/css" rel="stylesheet"/>
+		<link rel="stylesheet"type="text/css" href="styles.css" />
 		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 		
 		<script src="/socket.io/socket.io.js"></script>
@@ -27,38 +27,44 @@
 	</head>
 	<body>
 	
-		<h1>The LiveSplit Dashboard</h1>
+		<div id="container">
 		
-		<div id="dashboard">
-			<!--
-			<h2 id="reconnect">Reconnect to Livesplit Server</h2>
-			-->
-			
-			<div id="general">
-				<h2>General commands</h2>
-			
-				<h3 class="LS_command" id="starttimer">Start</h2>
-				<h3 class="LS_command" id="reset">Reset</h3>
-				<h3 class="LS_command" id="split">Split</h3>
-				<h3 class="LS_command" id="unsplit">Undo split</h3>
-				<h3 class="LS_command" id="skipsplit">Skip split</h3>
-				<h3 class="LS_command" id="pause">Pause</h3>
-				<h3 class="LS_command" id="resume">Resume</h3>
+			<div id="header">
+				<h1>The LiveSplit Dashboard</h1>
+				<p><a href="https://github.com/JermJermJerm/LiveSplit_Dashboard">View on Github</a></p>
 			</div>
 			
-			<div id="comparisons">
-				<h2>Set Comparison</h2>
-				<ul>
-					<li class="LS_command" id="setcomparison Best Segments">Best Segments</li>
-					<li class="LS_command" id="setcomparison Best Split Times">Best Split Times</li>
-					<li class="LS_command" id="setcomparison Average Segments">Average Segments</li>
-					<li class="LS_command" id="setcomparison Worst Segments">Worst Segments</li>
-					<li class="LS_command" id="setcomparison Balanced PB">Balanced PB</li>
-					<li class="LS_command" id="setcomparison Latest Run">Latest Run</li>
-					<li class="LS_command" id="setcomparison None">None</li>
-				</ul>
+			<div id="dashboard">
+				<!--
+				<h2 id="reconnect">Reconnect to Livesplit Server</h2>
+				-->
+				
+				<div id="general">
+					<h3>General commands</h3>
+				
+					<h3 class="LS_command" id="starttimer">Start</h2>
+					<h3 class="LS_command" id="reset">Reset</h3>
+					<h3 class="LS_command" id="split">Split</h3>
+					<h3 class="LS_command" id="unsplit">Undo split</h3>
+					<h3 class="LS_command" id="skipsplit">Skip split</h3>
+					<h3 class="LS_command" id="pause">Pause</h3>
+					<h3 class="LS_command" id="resume">Resume</h3>
+				</div>
+				
+				<div id="comparisons">
+					<ul>
+						<li>Set Comparison</li>
+						<li class="LS_command" id="setcomparison Best Segments">Best Segments</li>
+						<li class="LS_command" id="setcomparison Best Split Times">Best Split Times</li>
+						<li class="LS_command" id="setcomparison Average Segments">Average Segments</li>
+						<li class="LS_command" id="setcomparison Worst Segments">Worst Segments</li>
+						<li class="LS_command" id="setcomparison Balanced PB">Balanced PB</li>
+						<li class="LS_command" id="setcomparison Latest Run">Latest Run</li>
+						<li class="LS_command" id="setcomparison None">None</li>
+					</ul>
+				</div>
+				
 			</div>
-			
 		</div>
 	</body>
 </html>

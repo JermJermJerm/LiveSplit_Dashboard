@@ -1,5 +1,6 @@
 //Frontend to backend
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').Server(app);
 var io= require('socket.io')(http);
 
@@ -20,6 +21,9 @@ livesplitClient.on("error", function(){
 	//livesplitClient.destroy();
 	//console.log("livesplit server connection destroyed. disconnecting.");
 });
+
+//for serving static files from root dir
+app.use(express.static(__dirname));
 
 app.get('/', function(req, res){
 	res.sendFile(__dirname + '/index.html');

@@ -1,43 +1,83 @@
 *{
 	font-family: 'Ubuntu', sans-serif;
-	color: #EEEEEE;
+	color: black;
 }
 
 body{
-	background-color: #317589;
+	background-color: #BDC3C7;
 }
-/*
-	Background, darkish blue
-	THOUSAND HERB
-	#317589
+
+#header{
+	text-align: center;
+}
+
+
+#header h1{
+	text-align: center;
+	color: black;
+	margin-bottom: 0;
+}
+#header p{
+	font-size: 12px;
+	margin: 5px;
+}
+
+#container{
+	width: 460px;
 	
-	Font, hella off?white
-	GALLERY
-	#EEEEEE
+	display: block;
+	margin: 0 auto;
 	
-	Eucalyptus (Green)
-	#26A65B
-	
-	MONZA (red)
-	#CF000F
-*/
+	background-color: #EEEEEE;
+}
+
+#dashboard{
+	border-top: 1px #BDC3C7 solid;
+	height: 450px;
+}
+
 #general, #comparisons{
 	display: block;
 	float: left;
-	border: 1px black solid;
+	border: 5px black solid;
 	margin: 10px;
+	width: 200px;
 }
 
-#general h2, #comparisons h2{
-	text-align: center;
-	color: #000;
-	background-color: white;
-	margin: 0;
-}
 
 #general h3, li{
-	cursor: pointer;
+	list-style: none;
 	font-size: 1.3em;
+	font-weight: bold;
+	height: 50px;
+	text-align: center;
+	padding: 0;
+	line-height: 50px;
+}
+
+#general h3:not(:first-of-type), li:not(:first-of-type){
+	cursor: pointer;
+}
+
+#general h3:not(:first-of-type):hover, li:not(:first-of-type):hover{
+	background-color: RGB(112, 204, 137);
+}
+
+#general h3:not(:first-of-type):active, li:not(:first-of-type):active{
+	background-color: RGB(41, 204, 84);
+}
+
+#general h3:first-of-type, li:first-of-type{
+	text-align: center;
+	color: white;
+	background-color: RGB(22, 166, 255);
+	margin: 0;
+	height: 60px;
+	border-bottom: 5px black solid;
+}
+
+#general h3:not(:last-child), li:not(:last-child){
+	border-bottom: 2px black solid;
 }
 
 h3{
@@ -46,7 +86,7 @@ h3{
 	padding: 5px;
 }
 
-
+/*
 h3:nth-of-type(odd){
 	background-color: #26A65B;
 }
@@ -56,4 +96,10 @@ h3:nth-of-type(1){
 
 h3:nth-of-type(even){
 	background-color: #CF000F;
+}
+*/
+
+ul{
+	margin: 0;
+	padding-left: 0;
 }
