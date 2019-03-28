@@ -23,7 +23,7 @@ body{
 }
 
 #container{
-	width: 460px;
+	width: 690px;
 	
 	display: block;
 	margin: 0 auto;
@@ -36,7 +36,7 @@ body{
 	height: 500px;
 }
 
-#general, #comparisons{
+#general, #comparisons, #info{
 	display: block;
 	float: left;
 	border: 5px black solid;

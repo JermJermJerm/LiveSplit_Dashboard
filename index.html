@@ -12,15 +12,13 @@
 			$(function() {
 				var socket = io();
 				
+				//This is where livesplit commands go out through the socket when the corresponding button is pressed
+				//List of LiveSplit Server commands at https://github.com/LiveSplit/LiveSplit.Server
 				$(".LS_command").on("click", function(){
 					var instruction = $(this).attr("id") + "\r\n";
 					socket.emit('instruction', instruction);
 				});
-				/*
-				$("#reconnect").on("click", function(){
-					socket.emit('reconnect');
-				});
-				*/
+				//TODO reconnect code
 			});
 		</script>
 		
@@ -65,6 +63,15 @@
 					</ul>
 				</div>
 				
+				<div id="info">
+					<ul>
+						<li>Set Comparison</li>
+						<li class="LS_command" id="getsplitindex">Split number: </li>
+						<li class="LS_command" id="getcurrentsplitname">Current Split: </li>
+						<li class="LS_command" id="getprevioussplitname">Previous Split: </li>
+						<li class="LS_command" id="getcurrenttimerphase">Current Timer Phase:</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</body>
