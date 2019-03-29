@@ -10,6 +10,8 @@
 		<script>
 			
 			$(function() {
+			
+			
 				var socket = io();
 				
 				//This is where livesplit commands go out through the socket when the corresponding button is pressed
@@ -17,6 +19,15 @@
 				$(".LS_command").on("click", function(){
 					var instruction = $(this).attr("id") + "\r\n";
 					socket.emit('instruction', instruction);
+					//log what command was being sent through the socket, in the web browser's console
+					console.log(instruction);
+					
+					//for commands that return data to us on the livesplitClient socket
+					//yet to be verified as working
+					socket.on('data', function(data){
+						console.log(data);
+						
+					});
 				});
 				//TODO reconnect code
 			});

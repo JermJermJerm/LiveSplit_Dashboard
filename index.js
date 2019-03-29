@@ -2,9 +2,9 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
-var io= require('socket.io')(http);
+var io = require('socket.io')(http);
 
-//server to livesplit server
+//nodejs server to livesplit server
 var net = require('net');
 var livesplitClient = new net.createConnection({port: 16834}, () => {
 	console.log("attempting to connect to livesplit server...");
@@ -18,8 +18,6 @@ livesplitClient.on("connect", function(){
 livesplitClient.on("error", function(){
 	console.log("an error has occurred. Rip.");
 	console.log("we are not connected to the livesplit server.");
-	//livesplitClient.destroy();
-	//console.log("livesplit server connection destroyed. disconnecting.");
 });
 
 //for serving static files from root dir
@@ -29,6 +27,7 @@ app.get('/', function(req, res){
 	res.sendFile(__dirname + '/index.html');
 });
 
+//this connection is loading the webpage at localhost:3000 in a browser
 io.on('connection', function(socket){
 	console.log('a user connected');
 	
@@ -40,6 +39,7 @@ io.on('connection', function(socket){
 			console.log('message: ' + msg);
 			io.emit('chat message', msg);
 		});
+		
 	*/
 	
 	//when we hear an instruction emitted from the webpage, we send it to livesplit server
@@ -49,14 +49,22 @@ io.on('connection', function(socket){
 	});
 	
 	/*
-	Needs to be fixed - we want to be able to retry a connection
-	maybe set a timeout for retrying on connection error up top?
+		data is a nodeJS net / socket thing, where we're just listening for data being present at all
+		we call it response, and log it in the console / cmd
 	
-	socket.on('reconnect', function(){
-		var livesplitClient = new net.createConnection({port: 16834}, () => {
-			console.log("attempting to connect to livesplit server...");
-		});
+		we need a way to listen for this on the parent socket on the frontend
+		livesplitClient is a child socket between nodeJS and livesplit server
+	*/
+	livesplitClient.on('data', function(response){
+		console.log(response.toString());
 	});
+	
+	/* TODO reconnect code
+	
+		Needs to be fixed - we want to be able to retry a connection
+		maybe set a timeout for retrying on connection error up top?
+		
+		socket.on('reconnect', function(){
 	*/
 	
 });
